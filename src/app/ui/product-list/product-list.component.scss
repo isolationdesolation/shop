@@ -1,0 +1,28 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-container {
+  margin: 10px;
+}
+
+.skeleton {
+  mat-card {
+    padding: 30px;
+  }
+
+  &-text {
+    width: 300px;
+    height: 30px;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  &-img {
+    width: 300px;
+    height: 300px;
+    // margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+  }
+}
