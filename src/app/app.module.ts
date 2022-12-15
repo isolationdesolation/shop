@@ -10,6 +10,10 @@ import {MatCardModule} from '@angular/material/card';
 import { StoreModule } from '@ngrx/store';
 import { ProductDetailsComponent } from './ui/product-details/product-details.component';
 import { ProductListComponent } from './ui/product-list/product-list.component';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './store/effects/products.effect';
+import { appReducer as red } from './store/reducers/app.reducer';
+import { MaterialElevationDirective } from './directives/shadow.directive';
 
 
 @NgModule({
@@ -18,6 +22,7 @@ import { ProductListComponent } from './ui/product-list/product-list.component';
     ProductListComponent,
     ProductDetailsComponent,
     ProductListCardComponent,
+    MaterialElevationDirective
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,8 @@ import { ProductListComponent } from './ui/product-list/product-list.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatCardModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({app: red}),
+    EffectsModule.forRoot([ProductEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

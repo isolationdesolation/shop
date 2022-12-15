@@ -1,5 +1,10 @@
 <ng-container *ngIf="productData$|async as product">
-    <div>{{product.title}}</div>
-    <img mat-card-image src="{{product.image}}" alt="{{product.title}}">
-    <div>{{product.price}}</div>
+    <div class="card-container">
+        <img src="{{product.image}}" alt="{{product.title}}">
+        <aside>
+            <div class="product product-title">{{product.title}}</div>
+            <div class="product">{{product.price}} $</div>
+            <div class="product">{{product.description}}</div>
+        </aside>
+    </div>
 </ng-container>

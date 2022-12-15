@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ProductsService } from 'src/app/data-access/products.service';
+import { Product } from 'src/app/const/product.const';
+import { ProductsFacadeService } from 'src/app/data-access/products.facade.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,15 +12,15 @@ import { ProductsService } from 'src/app/data-access/products.service';
 })
 export class ProductDetailsComponent implements OnInit {
   productId: string;
-  productData$: Observable<any>;
+  productData$: Observable<Product>;
 
-  constructor(private route: ActivatedRoute, private productsService: ProductsService) {
+  constructor(private route: ActivatedRoute, private productsService: ProductsFacadeService) {
     this.productId = this.route.snapshot.params['productId'];
   }
 
   ngOnInit(): void {
-    console.log(this.productId)
-    this.productData$ = this.productsService.getProductById(this.productId)
+    this.productsService.loadProductById(this.productId)
+    this.productData$ = this.productsService.getCurrentProduct()
   }
 
 }

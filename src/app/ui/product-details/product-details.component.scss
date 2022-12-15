@@ -1,0 +1,11 @@
+.card-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.product {
+    margin-bottom: 20px;
+    &-title {
+        font-size: 30px;
+    }
+}

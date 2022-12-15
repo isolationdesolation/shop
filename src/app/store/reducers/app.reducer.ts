@@ -1,24 +1,35 @@
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { initialAppState, IApp } from '../app.interface';
-import { addToCart, addToCartSuccess, addToCartFail } from '../actions/actions';
+import {
+  loadAllProducts,
+  loadAllProductsFail,
+  loadAllProductsSuccess,
+  loadProductById,
+  loadProductByIdFail,
+  loadProductByIdSuccess,
+} from '../actions/actions';
 
 export const userFeatureKey = 'AppState';
 
-export const reducer = createReducer(
+export const appReducer = createReducer(
   initialAppState as IApp,
-  on(addToCart, (state) => ({
+  on(loadAllProducts, (state) => {
+    return { ...state };
+  }),
+  on(loadProductById, (state) => {
+    return { ...state };
+  }),
+  on(loadAllProductsSuccess, (state, { products }) => {
+    return { ...state, products: products };
+  }),
+  on(loadProductByIdSuccess, (state, { product }) => {
+    return { ...state, currentProduct: product };
+  }),
+  on(loadAllProductsFail, (state, { errors }) => ({
     ...state,
+    errors: errors,
   })),
-  on(addToCartSuccess, (state) => ({
-    ...state,
-    authenticationMessage: '',
-  })),
-  on(addToCartFail, (state, { message }) => ({
-    ...state,
-    authenticationMessage: message,
-  }))
+  on(loadProductByIdFail, (state, { errors }) => {
+    return { ...state, errors: errors };
+  })
 );
-
-export function AppReducer(state: IApp, action: Action): IApp {
-  return reducer(state as IApp, action as Action);
-}

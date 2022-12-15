@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/const/product.const';
 
 @Component({
   selector: 'app-product-list-card',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductListCardComponent {
-  @Input() product: any;
+  @Input() product: Product;
+
 
   constructor(private router: Router) {}
 

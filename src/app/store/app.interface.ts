@@ -1,15 +1,16 @@
+import { Product } from "../const/product.const";
+
 export interface IApp {
-    username: string;
-    password: string;
-    authenticationMessage: string;
+    products: Product[],
+    errors: string[],
+    currentProduct?: Product | undefined
   }
   
   export interface IAppState {
-    AppState: IApp;
+    app: IApp;
   }
   
   export const initialAppState: IApp = {
-    username: '',
-    password: '',
-    authenticationMessage: '',
+    products: [],
+    errors: [],
   };
