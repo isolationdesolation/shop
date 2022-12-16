@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductListCardComponent } from './ui/product-list-card/product-list-card.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { StoreModule } from '@ngrx/store';
 import { ProductDetailsComponent } from './ui/product-details/product-details.component';
 import { ProductListComponent } from './ui/product-list/product-list.component';
@@ -14,7 +14,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './store/effects/products.effect';
 import { appReducer as red } from './store/reducers/app.reducer';
 import { MaterialElevationDirective } from './directives/shadow.directive';
-
+import { AddProductComponent } from './ui/add-product/add-product.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ProductActionsModalComponent } from './ui/product-actions-modal/product-actions-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { MaterialElevationDirective } from './directives/shadow.directive';
     ProductListComponent,
     ProductDetailsComponent,
     ProductListCardComponent,
-    MaterialElevationDirective
+    MaterialElevationDirective,
+    AddProductComponent,
+    ProductActionsModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,10 +35,12 @@ import { MaterialElevationDirective } from './directives/shadow.directive';
     BrowserAnimationsModule,
     HttpClientModule,
     MatCardModule,
-    StoreModule.forRoot({app: red}),
-    EffectsModule.forRoot([ProductEffects])
+    MatDialogModule,
+    ReactiveFormsModule,
+    StoreModule.forRoot({ app: red }),
+    EffectsModule.forRoot([ProductEffects]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

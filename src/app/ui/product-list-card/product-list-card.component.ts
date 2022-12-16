@@ -15,7 +15,7 @@ export class ProductListCardComponent {
   constructor(private router: Router) {}
 
   onClick(): void {
-    this.router.navigateByUrl(`products/${this.product.id}`)
+    this.router.navigateByUrl(`product/${this.product.id}`)
   }
 
 }

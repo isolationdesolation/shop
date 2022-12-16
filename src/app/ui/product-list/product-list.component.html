@@ -1,12 +1,12 @@
 <h1>Super cyber black friday wednesday sale</h1>
 <div class="product-list">
     <ng-container *ngIf="(products$ | async) as products; else skeletons">
-        <app-product-list-card class="card-container" *ngFor="let product of products" [product]="product"></app-product-list-card>
+        <app-product-list-card class="m-4" *ngFor="let product of products" [product]="product"></app-product-list-card>
     </ng-container>
 </div>
 
 <ng-template #skeletons>
-    <div *ngFor="let i of [].constructor(9)" class="skeleton card-container">
+    <div *ngFor="let i of [].constructor(9)" class="skeleton m-4">
         <mat-card>
             <div class="skeleton skeleton-text"></div>
             <div class="skeleton skeleton-img"></div>

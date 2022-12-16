@@ -3,7 +3,9 @@ import { Product } from "../const/product.const";
 export interface IApp {
     products: Product[],
     errors: string[],
-    currentProduct?: Product | undefined
+    currentProduct?: Product,
+    addedProduct?: Product,
+    lastRemovedProduct?: Product,
   }
   
   export interface IAppState {
