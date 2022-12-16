@@ -59,13 +59,46 @@ export class ProductEffects {
     );
   });
 
-  onAddSuccess$: Observable<void> = createEffect(() => 
-     this.actions$.pipe(
-      ofType(actions.addProductSuccess),
-      map((action) => action.product),
-      map((product) => this.modalService.openDialogWithProduct(`Product ${product.title} was added`))
-    ),
-    { dispatch: false },
+  onAddSuccess$: Observable<void> = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(actions.addProductSuccess),
+        map((action) => action.product),
+        map((product) =>
+          this.modalService.openDialogWithProduct(
+            `Product ${product.title} was added`
+          )
+        )
+      ),
+    { dispatch: false }
+  );
+
+  onDeleteByIdSuccess$: Observable<void> = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(actions.deleteProductByIdSuccess),
+        map((action) => action.product),
+        map((product) =>
+          this.modalService.openDialogWithProduct(
+            `Product ${product.title} was deleted`
+          )
+        )
+      ),
+    { dispatch: false }
+  );
+
+  onUpdateSuccess$: Observable<void> = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(actions.updateProductByIdSuccess),
+        map((action) => action.product),
+        map((product) =>
+          this.modalService.openDialogWithProduct(
+            `Product ${product.title} was updated`
+          )
+        )
+      ),
+    { dispatch: false }
   );
 
   updateProduct$: Observable<any> = createEffect(() => {

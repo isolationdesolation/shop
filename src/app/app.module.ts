@@ -18,6 +18,7 @@ import { AddProductComponent } from './ui/add-product/add-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductActionsModalComponent } from './ui/product-actions-modal/product-actions-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     HttpClientModule,
     MatCardModule,
     MatDialogModule,
+    MatSlideToggleModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ app: red }),
     EffectsModule.forRoot([ProductEffects]),

@@ -72,12 +72,12 @@ export const updateProductById = createAction(
 );
 
 export const updateProductByIdSuccess = createAction(
-  DELETE_PRODUCT_BY_ID_SUCCESS,
+  UPDATE_PRODUCT_BY_ID_SUCCESS,
   props<{ product: Product }>()
 );
 
 export const updateProductByIdFail = createAction(
-  DELETE_PRODUCT_BY_ID_FAIL,
+  UPDATE_PRODUCT_BY_ID_FAIL,
   props<{ errors: string[] }>()
 );
 
